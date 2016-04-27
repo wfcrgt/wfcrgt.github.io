@@ -584,12 +584,9 @@ code {
   /** The following may need modification depending on
       the size of your `navbar-brand` (if enabled) */
   #main-menu-navbar {
-    float: right;
-    margin-right: -30px; 
-    margin-top: 40px;
+    margin-left: -30px;
   }
   .navbar-nav>li>a {
-    /* padding-top: 10px */
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -615,19 +612,17 @@ code {
  */
 
 .blog-header {
-  float: left;
+  padding-bottom: 20px;
 }
 .blog-title {
-  margin-top: 0;
+  margin-top: 30px;
   margin-bottom: 0;
-  font-size: 40px;
+  font-size: 60px;
   font-weight: normal;
-  color: #fff;
 }
 .blog-description {
-  margin-bottom: 0;
   font-size: 20px;
-  color: #cdddeb;
+  color: #999;
 }
 
 /*

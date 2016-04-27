@@ -108,7 +108,7 @@ code {
   #main-menu-navbar {
     float: right;
     margin-right: -30px; 
-    margin-top: 50px;
+    margin-top: 40px;
   }
   .navbar-nav>li>a {
     /* padding-top: 10px */
@@ -142,14 +142,14 @@ code {
 .blog-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: normal;
   color: #fff;
 }
 .blog-description {
   margin-bottom: 0;
   font-size: 20px;
-  color: #ddd;
+  color: #cdddeb;
 }
 
 /*

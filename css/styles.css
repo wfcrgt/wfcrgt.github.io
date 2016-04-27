@@ -586,7 +586,7 @@ code {
   #main-menu-navbar {
     float: right;
     margin-right: -30px; 
-    margin-top: 40px;
+    margin-top: 50px;
   }
   .navbar-nav>li>a {
     padding-top: 10px;
@@ -617,7 +617,7 @@ code {
   float: left;
 }
 .blog-title {
-  margin-top: 0;
+  margin-top: 10;
   margin-bottom: 0;
   font-size: 40px;
   font-weight: normal;

@@ -492,7 +492,7 @@ body {
   font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   color: #555;
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 15px;
   overflow-x: hidden;
 }
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
@@ -592,7 +592,7 @@ code {
   #main-menu-navbar {
     float: right;
     margin-right: -30px;
-    margin-top: 50px;
+    margin-top: 70px;
   }
   .navbar-nav>li>a {
     padding-top: 10px;
@@ -706,7 +706,7 @@ code {
 .article-entry .thumbnail .caption {
   padding: 0;
 }
-.article-entry>*:last-child {
+.article-entry > *:last-child {
   margin-bottom: 15px;
 }
 
@@ -740,14 +740,18 @@ code {
 .archives-wrap {
   font-size: 75%;
   margin-bottom: 30px;
- }
+}
 .archive-year-wrap a {
   color: #333;
   text-decoration: none;
 }
-.archive-article-header > * {
+.archive-article-attr > * {
+  color: #134854;
   display: inline-block;
   margin-right: 15px;
+}
+.archive-article-attr a {
+  color: #134854;
 }
 
 /*
@@ -755,6 +759,7 @@ code {
 */
 #page-nav {
   text-align: center;
+  margin-top: 30px;
 }
 #page-nav .pagination {
   margin-top: 0;
@@ -763,8 +768,7 @@ code {
   margin-right: 20px;
 }
 #page-nav .pagination .active > * {
-  background-color: #428bca;
-  /*border-color: #428bca;*/
+  background-color: #428bca;  /*border-color: #428bca;*/
 }
 #page-nav .pagination > li:last-child > * {
   border-top-right-radius: 3px;
@@ -776,13 +780,24 @@ code {
 }
 
 /*
+* back to top
+*/
+#totop {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+/*
 * Footer
 */
 .blog-footer {
   padding: 40px 0;
+  margin-top: 40px;
   color: #999;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
 }

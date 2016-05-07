@@ -48,6 +48,7 @@ code {
 }
 .fa {
   margin-right: 0.25em;
+  margin-left: 0.25em;
 }
 
 /* Buttons */
@@ -65,7 +66,7 @@ code {
 /* Override Bootstrap's default container width */
 @media (min-width:1200px) {
   .container {
-    width: 1080px;
+    width: 960px;
   }
 }
 
@@ -73,7 +74,7 @@ code {
  * Masthead for nav
  */
 .navbar {
-  background-color: #428bca;
+  background-color: #333;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, .1);
   box-shadow: inset 0 -2px 5px rgba(0, 0, 0, .1);
 }
@@ -81,27 +82,27 @@ code {
   border: 0;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #cdddeb;
+  border-color: #ddd;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #cdddeb;
+  background-color: #ddd;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-  background-color: #65A2D6;
+  background-color: #65a2d6;
 }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
-  color: #cdddeb;
+  color: #ddd;
   font-weight: 500;
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-  border-color: #cdddeb;
+  border-color: #ddd;
 }
 .navbar-inverse .navbar-nav>li>a.active {
   color: #fff;
 }
 @media (min-width:768px) {
   .navbar {
-    border-radius: 0;
+    border-radius: 0px;
     min-height: 40px;
   }
 
@@ -109,17 +110,16 @@ code {
       the size of your `navbar-brand` (if enabled) */
   #main-menu-navbar {
     float: right;
+    margin-top: 18px;
     margin-right: -30px;
-    margin-top: 70px;
   }
   .navbar-nav>li>a {
+    font-size: 14px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
   /** ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
-
-  /*
   .navbar-inverse .navbar-nav>li>a.active:after {
     position: absolute;
     bottom: 0;
@@ -133,7 +133,6 @@ code {
     border-bottom: 5px solid;
     border-left: 5px solid transparent;
   }
-  */
 }
 
 /*
@@ -143,17 +142,23 @@ code {
   float: left;
 }
 .blog-title {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 40px;
+  line-height: 1.0;
+  font-size: 30px;
   font-weight: bold;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.blog-title a {
+  color: #fff;
+}
+.blog-title a:hover {
   color: #fff;
 }
 .blog-description {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 20px;
-  color: #cdddeb;
+  color: #ddd;
+  line-height: 1.0;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
 /*
@@ -167,8 +172,9 @@ code {
 
 /* Sidebar modules for boxing content */
 .sidebar-module {
+  font-size: 0.9em;
   padding: 15px;
-  margin: 0 -15px 15px;
+  margin: 0 -15px 15px -40px;
 }
 .sidebar-module h4 {
   margin-top: 0;
@@ -189,12 +195,6 @@ code {
 }
 .sidebar-module-list-child {
   padding-left: 25px;
-}
-
-/* about icon */
-#about-icon {
-  width: 100px;
-  height: 100px;
 }
 
 /*
@@ -275,7 +275,7 @@ code {
   margin-right: 15px;
 }
 .archive-article-title {
-  font-size: 80%;
+  font-size: 0.8em;
 }
 
 /*

@@ -69,6 +69,11 @@ code {
     width: 960px;
   }
 }
+@media (max-width:768) {
+  .sidebar-module {
+    display: none;
+  }
+}
 
 /*
  * Masthead for nav
@@ -275,7 +280,7 @@ code {
   margin-right: 15px;
 }
 .archive-article-title {
-  font-size: 0.8em;
+  font-size: 16px;
 }
 
 /*

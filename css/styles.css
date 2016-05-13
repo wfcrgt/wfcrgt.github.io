@@ -442,11 +442,6 @@ code {
     width: 960px;
   }
 }
-@media (max-width:768px) {
-  .sidebar-module {
-    display: none;
-  }
-}
 
 /*
  * Masthead for nav

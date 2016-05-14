@@ -385,13 +385,13 @@
 
 body {
   font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
-  line-height: 1.5;
+  line-height: 1.7;
   font-size: 16px;
   overflow-x: hidden;
 }
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 p {
   margin: 0 0 15px;
@@ -644,6 +644,8 @@ code {
   text-decoration: none;
 }
 .archive-article-header > * {
+  line-height: 1.0;
+  background-color: #ddd;
   display: inline-block;
   margin-right: 15px;
 }

@@ -271,8 +271,6 @@ code {
   text-decoration: none;
 }
 .archive-article-header > * {
-  line-height: 1.0;
-  background-color: #ddd;
   display: inline-block;
   margin-right: 15px;
 }

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>KNN算法的C语言实现 | wangke</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="k-NN(k-Nearest Neighbors) k-近邻算法概述
+
+k-近邻算法采用测量不同的特征值之间的距离方法进行分类
+
+k-近邻算法的一般流程
+
+收集数据：可以使用任何方法
+准备数据：距离计算所需要的数值，最好是结构化的数据格式
+分析数据：可以使用任何方法
+训练算法：此步骤不适用于k-近邻算法
+测试算法：计算错误率
+使用算法：首先需要输入样本数据和结构化的输出结果，然后使用k-近邻算法判">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KNN算法的C语言实现">
+<meta property="og:url" content="http://yoursite.com/2016/05/14/ciohv0ltr00001ghq8moxhdbf/index.html">
+<meta property="og:site_name" content="wangke">
+<meta property="og:description" content="k-NN(k-Nearest Neighbors) k-近邻算法概述
+
+k-近邻算法采用测量不同的特征值之间的距离方法进行分类
+
+k-近邻算法的一般流程
+
+收集数据：可以使用任何方法
+准备数据：距离计算所需要的数值，最好是结构化的数据格式
+分析数据：可以使用任何方法
+训练算法：此步骤不适用于k-近邻算法
+测试算法：计算错误率
+使用算法：首先需要输入样本数据和结构化的输出结果，然后使用k-近邻算法判">
+<meta property="og:updated_time" content="2016-05-14T12:44:03.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KNN算法的C语言实现">
+<meta name="twitter:description" content="k-NN(k-Nearest Neighbors) k-近邻算法概述
+
+k-近邻算法采用测量不同的特征值之间的距离方法进行分类
+
+k-近邻算法的一般流程
+
+收集数据：可以使用任何方法
+准备数据：距离计算所需要的数值，最好是结构化的数据格式
+分析数据：可以使用任何方法
+训练算法：此步骤不适用于k-近邻算法
+测试算法：计算错误率
+使用算法：首先需要输入样本数据和结构化的输出结果，然后使用k-近邻算法判">
+  
+    <link rel="alternate" href="/atom.xml" title="wangke" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- header -->
+    <div class="blog-header">
+	<p class="blog-title">
+		<a href="/index.html">wangke</a>
+	</p>
+  
+    <p class="lead blog-description">Let there be light</p>
+  
+</div>
+
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+          href="/index.html">首页</a></li>
+        
+          <li><a class=""
+          href="/archives/">归档</a></li>
+        
+          <li><a class=""
+          href="/column/about.html">关于</a></li>
+        
+      </ul>
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-KNN算法的C语言实现" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      KNN算法的C语言实现
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2016/05/14/ciohv0ltr00001ghq8moxhdbf/" class="article-date"><time datetime="2016-05-14T12:38:20.000Z" itemprop="datePublished">2016-05-14</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </div>
+
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KNN/">KNN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="k-NN-k-Nearest-Neighbors-k-近邻算法"><a href="#k-NN-k-Nearest-Neighbors-k-近邻算法" class="headerlink" title="k-NN(k-Nearest Neighbors) k-近邻算法"></a>k-NN(k-Nearest Neighbors) k-近邻算法</h2><p>概述</p>
+<ul>
+<li>k-近邻算法采用测量不同的特征值之间的距离方法进行分类</li>
+</ul>
+<p>k-近邻算法的一般流程</p>
+<ol>
+<li>收集数据：可以使用任何方法</li>
+<li>准备数据：距离计算所需要的数值，最好是结构化的数据格式</li>
+<li>分析数据：可以使用任何方法</li>
+<li>训练算法：此步骤不适用于k-近邻算法</li>
+<li>测试算法：计算错误率</li>
+<li>使用算法：首先需要输入样本数据和结构化的输出结果，然后使用k-近邻算法判定输入数据分别属于哪个分类，最后应用对计算出的分类执行后续的处理</li>
+</ol>
+<p>对未知类别属性的数据集中的每个点依次执行以下操作</p>
+<ol>
+<li>计算已知类别数据集中的点与当前点的距离</li>
+<li>按照距离递增次序排序</li>
+<li>选取与当前点距离最小的k个点</li>
+<li>确定前k个点所在类别的出现频率</li>
+<li>返回前k个点出现频率最高的类别作为当前点的预测分类</li>
+</ol>
+<h3 id="按照上述步骤，可以实现k-近邻算法"><a href="#按照上述步骤，可以实现k-近邻算法" class="headerlink" title="按照上述步骤，可以实现k-近邻算法"></a>按照上述步骤，可以实现k-近邻算法</h3><h4 id="k-近邻算法的C语言实现"><a href="#k-近邻算法的C语言实现" class="headerlink" title="k-近邻算法的C语言实现"></a>k-近邻算法的C语言实现</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE_ATTR 3 <span class="comment">/* 属性维度 */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE_TRAIN 500 <span class="comment">/* 训练集大小 */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE_TEST 500 <span class="comment">/* 测试集大小 */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> K 7 <span class="comment">/* 所选k值 */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILE_TRAIN <span class="string">"train.txt"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 记录所构成的结构体变量 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _DataVector &#123;</span><br><span class="line">	<span class="keyword">int</span> id; <span class="comment">/* 标号 */</span></span><br><span class="line">	<span class="keyword">float</span> attr[SIZE_ATTR]; <span class="comment">/* 属性 */</span></span><br><span class="line">	<span class="keyword">int</span> label; <span class="comment">/* 类别 */</span></span><br><span class="line">&#125; DataVector;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 把记录中的属性换成距离后的结构体变量 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _DistanceVector &#123;</span><br><span class="line">	<span class="keyword">int</span> id; <span class="comment">/* 标号 */</span></span><br><span class="line">	<span class="keyword">int</span> label; <span class="comment">/* 类别 */</span></span><br><span class="line">	<span class="keyword">float</span> distance; <span class="comment">/* 距离 */</span></span><br><span class="line">&#125; DistanceVector;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 属性的结构体变量</span><br><span class="line">可以先对属性值做一个分析，再做下一步针对性处理（如归一化特征值处理） */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _AttrValue &#123;</span><br><span class="line">	<span class="keyword">float</span> max; <span class="comment">/* 属性的最大值 */</span></span><br><span class="line">	<span class="keyword">float</span> min; <span class="comment">/* 属性的最小值 */</span></span><br><span class="line">	<span class="keyword">float</span> length; <span class="comment">/* 属性的长度 */</span></span><br><span class="line">&#125; AttrValue;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定义全局变量 */</span></span><br><span class="line">DataVector trainSet[SIZE_TRAIN]; <span class="comment">/* 训练集 */</span></span><br><span class="line">DataVector testSet[SIZE_TEST]; <span class="comment">/* 测试集 */</span></span><br><span class="line">DistanceVector knn[SIZE_TRAIN]; <span class="comment">/* 距离存储 */</span></span><br><span class="line">AttrValue av[SIZE_ATTR]; <span class="comment">/* 属性的属性 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 从文件中加载数据到内存 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loadDataFromFile</span><span class="params">(FILE *fp, <span class="keyword">char</span> *fileName, DataVector *dv, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ((fp = fopen(fileName, <span class="string">"r"</span>)) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"open \"%s\" failured!/n"</span>, fileName);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; ++i) &#123;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; SIZE_ATTR; ++j) &#123;</span><br><span class="line">			<span class="built_in">fscanf</span>(fp, <span class="string">"%f "</span>, &amp;dv[i].attr[j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fscanf</span>(fp, <span class="string">"%d\n"</span>, &amp;dv[i].label);</span><br><span class="line">	&#125;</span><br><span class="line">	fclose(fp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 准备数据 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loadData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	loadDataFromFile(fp, FILE_TRAIN, trainSet, SIZE_TRAIN);</span><br><span class="line">	loadDataFromFile(fp, FILE_TRAIN, testSet, SIZE_TEST);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"loading data success!\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 数据分析（预处理）</span><br><span class="line">计算每个属性长度，为归一化特征值准备 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preProcess</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 初始化 */</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE_ATTR; ++i) &#123;		</span><br><span class="line">		av[i].max = trainSet[<span class="number">0</span>].attr[i];</span><br><span class="line">		av[i].min = trainSet[<span class="number">0</span>].attr[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/* 计算属性最大最小值 */</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE_TRAIN; ++i) &#123;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; SIZE_ATTR; ++j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (trainSet[i].attr[j] &gt; av[j].max) &#123;</span><br><span class="line">				av[j].max = trainSet[i].attr[j];</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (trainSet[i].attr[j] &lt; av[j].min) &#123;</span><br><span class="line">				av[j].min = trainSet[i].attr[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/* 计算属性长度 */</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE_ATTR; ++i) &#123;</span><br><span class="line">		av[i].length = av[i].max - av[i].min;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 归一化特征值</span><br><span class="line">公式：newValue = (oldValue - min) / (max - min) */</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">autoNorm</span><span class="params">(<span class="keyword">float</span> oldValue, AttrValue *av)</span> </span>&#123;</span><br><span class="line">	return (oldValue - (av-&gt;min)) / (av-&gt;length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 距离计算</span><br><span class="line">这里计算的是欧式距离 */</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">calcDistance</span><span class="params">(DataVector d1, DataVector d2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">float</span> sum = <span class="number">0.0</span>;</span><br><span class="line">	<span class="keyword">float</span> newValue;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE_ATTR; ++i) &#123;</span><br><span class="line">		newValue = autoNorm((d1.attr[i] - d2.attr[i]), av+i);</span><br><span class="line">		sum += newValue * newValue;</span><br><span class="line">	&#125;</span><br><span class="line">	return (float) <span class="built_in">sqrt</span>(sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 把每个数据的属性向量转化为距离 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transDistance</span><span class="params">(DataVector dv)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE_TRAIN; ++i) &#123;</span><br><span class="line">		<span class="comment">/* 对距离进行赋值 */</span></span><br><span class="line">		knn[i].id = i;</span><br><span class="line">		knn[i].label = trainSet[i].label;</span><br><span class="line">		knn[i].distance = calcDistance(trainSet[i], dv);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 对所有距离进行排序，选取距离最小的k个数据向量（此处使用直接选择排序） */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">knnSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k;</span><br><span class="line">	DistanceVector temp;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; K; ++i) &#123;</span><br><span class="line">		k = i;</span><br><span class="line">		<span class="comment">/*  从无序序列中挑出一个最小的元素 */</span></span><br><span class="line">		<span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt;= SIZE_TRAIN; ++j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (knn[k].distance &gt; knn[j].distance) &#123;</span><br><span class="line">				k = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		temp = knn[i];</span><br><span class="line">		knn[i] = knn[k];</span><br><span class="line">		knn[k] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 预测分类 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">forecastClassification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> freq[K] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> maxFreq = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> i, j, k = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 确定前k个点所在类别出现的概率</span><br><span class="line">	这里有点欠妥，因为分类最多能出现k个，出现了重复类别重复计算*/</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; K; ++i) &#123;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; K; ++j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (knn[j].label == knn[i].label) &#123;</span><br><span class="line">				freq[i]++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/* 找到最大频率 */</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; K; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (freq[i] &gt; maxFreq) &#123;</span><br><span class="line">			maxFreq = freq[i];</span><br><span class="line">			k = i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/* 得到最大频率的类别 */</span></span><br><span class="line">	return knn[k].label;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 对测试数据进行测试 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	loadData();</span><br><span class="line">	preProcess();</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 对每一条测试数据进行计算 */</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE_TEST; ++i) &#123;</span><br><span class="line">		transDistance(testSet[i]);</span><br><span class="line">		knnSort();</span><br><span class="line">		<span class="keyword">if</span> (testSet[i].label == forecastClassification()) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"1"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"0"</span>);</span><br><span class="line">			++k;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\nTest end, wrong time is %d, the correct rate is %.2f%%\n"</span>, k, (float) (SIZE_TEST - k)/SIZE_TEST*<span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	test();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考资料</p>
+<ul>
+<li>机器学习实战. Peter Harrington</li>
+</ul>
+<p>测试材料</p>
+<ul>
+<li>机器学习实战源代码/Ch02/datingTestSet2.txt</li>
+</ul>
+<p>另外，代码还有许多可以改进之处，比如当所取K值为偶数时，预测概率为50%时的下一步处理等</p>
+
+      
+    </div>
+
+    
+      
+
+    
+    <!--
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/14/ciohv0ltr00001ghq8moxhdbf/" data-id="ciohv0ltr00001ghq8moxhdbf" class="article-share-link">
+        <i class="fa fa-share"></i>分享
+      </a>
+      
+    </footer>
+    -->
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  
+  <li role="presentation">
+    <a href="/2016/05/14/ciohv0ltr00021ghqgr803hez/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Hexo之旅</span>
+      <i class="fa fa-angle-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+<!--
+
+-->
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+  <div class="sidebar-module">
+    <h4>标签</h4>
+    <p class="tagcloud">
+      <a href="/tags/KNN/" style="font-size: 10px;">KNN</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/博客搭建/" style="font-size: 10px;">博客搭建</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/效率/" style="font-size: 10px;">效率</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>分类</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/机器学习/">机器学习</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/涉猎/">涉猎</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/">随笔</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>归档</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">五月 2016</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/04/">四月 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>最新文章</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2016/05/14/ciohv0ltr00001ghq8moxhdbf/">KNN算法的C语言实现</a>
+        </li>
+      
+        <li>
+          <a href="/2016/05/14/ciohv0ltr00021ghqgr803hez/">Hexo之旅</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/03/ciohv0lu700061ghq8kpkq6wr/">学会工作，学会生活</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+  <div class="sidebar-module">
+<h4>专栏</h4>
+  
+    <li>
+      
+      	<a href="/column/recommend.html" title="阅读推荐">阅读推荐</a>
+      
+    </li>
+  
+    <li>
+      
+      	<a href="/column/excerpt.html" title="阅读摘抄">阅读摘抄</a>
+      
+    </li>
+  
+</div>
+
+
+  <div class="sidebar-module">
+<h4>链接</h4>
+  
+    <li>
+      
+      	<a href="http://gold.xitu.io/#/" target="_blank" title="稀土掘金">稀土掘金</a>
+      
+    </li>
+  
+    <li>
+      
+      	<a href="http://stormzhang.com/" target="_blank" title="stormzhang博客精华">stormzhang博客精华</a>
+      
+    </li>
+  
+    <li>
+      
+      	<a href="http://www.trinea.cn/" target="_blank" title="Trinea">Trinea</a>
+      
+    </li>
+  
+</div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2016 wangke<br>
+      E-mail: wangkeio@163.com<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<div id="totop">
+	<img src="/img/totop.png"/>
+</div>
+<script src="/js/totop.js"></script>
+
+</body>
+</html>
